@@ -75,6 +75,7 @@
       <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MaHocVien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblGiangVien" Member="tblGiangViens">
@@ -90,6 +91,7 @@
       <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IDChucVu" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="MaGiangVien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_KhoaHoc" Method="sp_KhoaHoc">
