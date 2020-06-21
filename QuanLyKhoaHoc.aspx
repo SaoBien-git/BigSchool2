@@ -10,75 +10,68 @@
                 <div class="col-lg-12">
                     <div class="card mb-3" style="background-color: white">
                         <div class="card-header" style="background-color: antiquewhite; font-weight: bold; color: blue">
-                            Thông tin nhân viên
+                            Thông tin khóa học
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="form-group">
-                                        <span style="margin-left: 5px;">Họ và tên</span>
-                                        <asp:TextBox ID="txtHoTen" runat="server" CssClass="form-control" placeholder="Họ tên"></asp:TextBox>
+                                        <span style="margin-left: 5px;">Chủ đề</span>
+                                        <asp:TextBox ID="txtChuDe" runat="server" CssClass="form-control" placeholder="Chủ đề"></asp:TextBox>
+                                    </div>
+                                </div
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <span style="margin-left: 5px;">Địa điểm</span>
+                                        <asp:TextBox ID="txtDiaDiem" runat="server" CssClass="form-control" placeholder="Địa điểm"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group">
-                                        <span style="margin-left: 5px;">Ngày sinh</span><br />
-                                        <asp:TextBox ID="txtNgaySinh" runat="server" CssClass="form-control " data-toggle="tooltip"
-                                            placeholder="Ngày sinh" data-original-title="Nhập ngày sinh"
+                                        <span style="margin-left: 5px;">Nội dung</span>
+                                        <asp:TextBox ID="txtNoiDung" runat="server" CssClass="form-control" placeholder="Nội dung"></asp:TextBox>
+                                    </div>
+                                </div>
+                                 <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <span style="margin-left: 5px;">Kinh phí</span>
+                                        <asp:TextBox ID="txtKinhPhi" runat="server" CssClass="form-control" placeholder="Kinh phí"></asp:TextBox>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                 <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <span style="margin-left: 5px;">Giảng viên</span>
+                                        <asp:DropDownList runat="server" ID="dlGiangVien" CssClass="dropdownselect2"></asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <span style="margin-left: 5px;">Ngày bắt đầu</span><br />
+                                        <asp:TextBox ID="txtNgayBatDau" runat="server" CssClass="form-control " data-toggle="tooltip"
+                                            placeholder="Ngày bắt đầu"
                                             MaxLength="10"></asp:TextBox>
                                         <ajaxToolkit:CalendarExtender PopupPosition="BottomLeft" ID="CalendarExtender1" runat="server"
-                                            TargetControlID="txtNgaySinh" Format="dd/MM/yyyy" />
+                                            TargetControlID="txtNgayBatDau" Format="dd/MM/yyyy" />
                                         <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" runat="server" FilterType="Custom,Numbers"
-                                            TargetControlID="txtNgaySinh" ValidChars="/-" />
+                                            TargetControlID="txtNgayBatDau" ValidChars="/-" />
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                   <div class="col-lg-3">
                                     <div class="form-group">
-                                        <span style="margin-left: 5px;">Giới tính</span>
-                                        <asp:DropDownList runat="server" ID="dlGioiTinh" Width="98%" CssClass="dropdownselect2">
-                                            <asp:ListItem Value="">--Chọn giới tính--</asp:ListItem>
-                                            <asp:ListItem Value="Nam">Nam</asp:ListItem>
-                                            <asp:ListItem Value="Nữ">Nữ</asp:ListItem>
-                                            <asp:ListItem Value="Giới tính khác">Giới tính khác</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
-                                  <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <span style="margin-left: 5px;">Địa chỉ</span>
-                                        <asp:TextBox ID="txtDiaChi" runat="server" CssClass="form-control" placeholder="Địa chỉ"></asp:TextBox>
+                                        <span style="margin-left: 5px;">Ngày kết thúc</span><br />
+                                        <asp:TextBox ID="txtNgayKetThuc" runat="server" CssClass="form-control " data-toggle="tooltip"
+                                            placeholder="Ngày kết thúc"
+                                            MaxLength="10"></asp:TextBox>
+                                        <ajaxToolkit:CalendarExtender PopupPosition="BottomLeft" ID="CalendarExtender2" runat="server"
+                                            TargetControlID="txtNgayKetThuc" Format="dd/MM/yyyy" />
+                                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" runat="server" FilterType="Custom,Numbers"
+                                            TargetControlID="txtNgayKetThuc" ValidChars="/-" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-3">
-                                            <div class="form-group">
-                                                <span style="margin-left: 5px;">Email</span>
-                                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email"></asp:TextBox>
-                                                <asp:RegularExpressionValidator ID="regEmail" ControlToValidate="txtEmail" Text="(Invalid email)" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" runat="server" />
-                                            </div>
-                                    </div>
-                                <div class="col-lg-3">
-                                                <span style="margin-left: 5px;">Số điện thoại</span>
-                                                <asp:TextBox ID="txtDienThoai" runat="server" class="form-control" placeholder="Điện thoại"></asp:TextBox>
-                                                <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" runat="server" FilterType="Numbers"
-                                                    TargetControlID="txtDienThoai" />
-                                            </div>
-                                 <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <span style="margin-left: 5px;">Bộ phận</span>
-                                       <asp:DropDownList runat="server" ID="dlBoPhan" Width="98%" CssClass="dropdownselect2">
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
-                                    <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <span style="margin-left: 5px;">Chức vụ</span>
-                                       <asp:DropDownList runat="server" ID="dlChucVu" Width="98%" CssClass="dropdownselect2">
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
-                                        </div>
                                     </div>
 
                                 </div>
@@ -97,7 +90,7 @@
                 <div class="col-lg-12">
                     <div class="card mb-3" style="background-color: white">
                         <div class="card-header" style="background-color: antiquewhite; font-weight: bold; color: blue">
-                            DANH SÁCH NHÂN VIÊN
+                            DANH SÁCH KHÓA HỌC
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -105,7 +98,7 @@
                                     <div class="row">
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <asp:DropDownList runat="server" ID="dlNhanVienLoc" Width="98%" CssClass="dropdownselect2"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="dlKhoaHocLoc" Width="98%" CssClass="dropdownselect2"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
