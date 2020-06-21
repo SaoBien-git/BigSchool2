@@ -54,6 +54,8 @@
                                     <asp:BoundField DataField="HoTen" HeaderText="Giảng viên" />
                                     <asp:BoundField DataField="NoiDung" HeaderText="Nội dung" />
                                     <asp:BoundField DataField="KinhPhi" HeaderText="Học phí" />
+                                    <asp:BoundField DataField="TuNgay" HeaderText="Ngày bắt đầu" />
+                                    <asp:BoundField DataField="DenNgay" HeaderText="Ngày kết thúc" />
                                 </Columns>
                                 <FooterStyle BackColor="White" ForeColor="#000066" Font-Bold="True" Font-Size="11px"
                                     HorizontalAlign="Right" />
