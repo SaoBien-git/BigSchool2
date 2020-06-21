@@ -22,7 +22,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-3">
-                                <span style="margin-left: 5px;">Tên loại dinh dưỡng</span>
+                                <span style="margin-left: 5px;">Tên chủ đề</span>
                                 <asp:DropDownList runat="server" ID="dlChuDe" Width="98%" CssClass="dropdownselect2"></asp:DropDownList>
                             </div>
                              <div class="col-lg-3">
