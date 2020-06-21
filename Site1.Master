@@ -1,0 +1,440 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BigSchool.Site1" %>
+<%@ Register Src="~/Uc/CheDoFirst.ascx" TagPrefix="uc1" TagName="CheDoFirst" %>
+<%@ Register Src="~/Uc/CheDoList.ascx" TagPrefix="uc1" TagName="CheDoList" %>
+<%@ Register Src="~/Uc/uc_YTeCongCong.ascx" TagPrefix="uc1" TagName="uc_YTeCongCong" %>
+<%@ Register Src="~/Uc/uc_ChamSocSucKhoe.ascx" TagPrefix="uc1" TagName="uc_ChamSocSucKhoe" %>
+<%@ Register Src="~/Uc/uc_ThucPhamChucNang.ascx" TagPrefix="uc1" TagName="uc_ThucPhamChucNang" %>
+<%@ Register Src="~/Uc/uc_Video.ascx" TagPrefix="uc1" TagName="uc_Video" %>
+<%@ Register Src="~/Uc/uc_TinTucSuKien.ascx" TagPrefix="uc1" TagName="uc_TinTucSuKien" %>
+<%@ Register Src="~/Uc/uc_LienKet.ascx" TagPrefix="uc1" TagName="uc_LienKet" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Big School</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link href="style.css" rel="stylesheet" />
+    <link href="dist/css/style.css" rel="stylesheet" />
+      <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+      <form id="form1" runat="server">
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="TrangChu.aspx" style="color:white; font-size:36px">Big School</a>
+                            </div>
+
+                            <!-- Login Search Area -->
+                            <div class="login-search-area d-flex align-items-center">
+                                <!-- Login -->
+                                <div class="login d-flex">
+                                     <asp:Label ID="Label1" runat="server" Text="Xin chào: " ForeColor="White" Visible="false"></asp:Label>
+                                    <a href="ThongTinTaiKhoan.aspx" id="lbTaiKhoan" runat="server" visible="false"></a>
+                                    <a href="ThongTinTaiKhoan.aspx" id="lbThongTin" runat="server" visible="false">Thông tin cá nhân</a>
+                                    <a href="Login.aspx" id="lbdangNhap" runat="server">Đăng nhập</a>
+                                    <a href="DangKy.aspx" id="lbdangky" runat="server">Đăng ký</a>
+                                    <asp:LinkButton ID="btndangxuat" runat="server" Visible="false" OnClick="btndangxuat_Click">Đăng xuất</asp:LinkButton>
+                                </div>
+                                <!-- Search Form -->
+                               <%-- <div class="search-form">
+                                        <input type="search" name="search" class="form-control" placeholder="Search">
+                                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="newspaper-main-menu" id="stickyMenu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="newspaperNav">
+
+                        <!-- Logo -->
+                        <div class="logo">
+                           <a href="TrangChu.aspx" style="color:white; font-size:36px">Big School</a>
+                        </div>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="TrangChu.aspx">Trang chủ</a></li>
+                                    <li><a href="GioiThieu.aspx">Giới thiệu</a></li>
+                                    <li><a href="KhoaHoc.aspx">Khóa học</a></li>
+                                     <li><a href="DangKy.aspx">Đăng ký khóa học</a></li>
+                                    <li><a href="TheoDoiGiangVien.aspx">Theo dõi giảng viên</a></li>
+                                    <li><a href="TinTucSuKien.aspx">Tin tức</a></li>
+                                    <li><a href="LienHe.aspx">Liên hệ</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+    <div class="hero-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-area d-flex align-items-center">
+                        <div class="news-title">
+                            <p>Breaking News</p>
+                        </div>
+                        <div id="breakingNewsTicker" class="ticker">
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a href="#">Welcome to Colorlib Family.</a></li>
+                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-area d-flex align-items-center mt-15">
+                        <div class="news-title title2">
+                            <p>International</p>
+                        </div>
+                        <div id="internationalTicker" class="ticker">
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a href="#">Welcome to Colorlib Family.</a></li>
+                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Add -->
+                <div class="col-12 col-lg-4">
+                    <div class="hero-add">
+                        <a href="#"><img src="img/bg-img/hero-add.gif" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="featured-post-area">
+        <div class="container">
+          <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+            <div class="row">
+
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="section-heading">
+                        <h6>Khóa học</h6>
+                    </div>
+                    <div class="row">
+
+                        <!-- Single Featured Post -->
+                        <div class="col-12 col-lg-5">
+                            <uc1:CheDoFirst runat="server" id="CheDoFirst" />
+                        </div>
+
+                        <div class="col-12 col-lg-7">
+                            <!-- Single Featured Post -->
+                            <uc1:CheDoList runat="server" id="CheDoList" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="section-heading">
+                        <h6>Giảng viên</h6>
+                    </div>
+                    <!-- Single Featured Post -->
+                    <uc1:uc_YTeCongCong runat="server" id="uc_YTeCongCong" />
+                </div>
+            </div>
+        </div>
+    </div>
+              <div class="video-post-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
+        <div class="container">
+            <uc1:uc_Video runat="server" id="uc_Video" />
+        </div>
+    </div>
+    <!-- ##### Editorial Post Area End ##### -->
+
+    <!-- ##### Footer Add Area Start ##### -->
+    <div class="footer-add-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-add">
+                        <a href="#"><img src="img/bg-img/footer-add.gif" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Footer Add Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+
+        <!-- Main Footer Area -->
+
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Copywrite -->
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+                  <script type="text/javascript">
+                      var $h3soluong = $('#lbsoluong');
+                      var val = "<%= Session["IDND"]%>";
+                      var job = $.connection.jobHub;
+
+                      var dautien = document.getElementById('lbsoluong').innerHTML;
+                      if (dautien == '') {
+                          job.client.displayStatus = function () {
+                              getData();
+                          };
+                          $.connection.hub.start();
+                          getData();
+
+                          $.connection.hub.stop();
+                      }
+                      $(function () {
+                          window.addEventListener('focus', function () {
+
+                              job.client.displayStatus = function () {
+                                  getData();
+                              };
+                              $.connection.hub.start();
+                              getData();
+                          });
+                      });
+
+                      window.addEventListener('blur', function () {
+                          //job.disconnect();
+                          $.connection.hub.stop();
+                      });
+
+                      function getData() {
+                          $.ajax({
+                              url: '../api/Notification?name=' + val,
+                              type: 'GET',
+                              datatype: 'json',
+                              success: function (data) {
+                                  if (data.length > 0) {
+                                      $h3soluong.empty();
+                                      $h3soluong.append(data.length);
+                                  }
+                                  else {
+                                      $h3soluong.empty();
+                                      $h3soluong.append(0);
+                                  }
+                              }
+                          });
+                      }
+        </script>
+        <script type="text/javascript">
+            function BindEvents() {
+                $(document).ready(function () { $(".dropdownselect2").select2(); });
+                $(document).ready(function () {
+                    $(".mlselect").multiselect({
+                        includeSelectAllOption: true,
+                        enableCaseInsensitiveFiltering: true,
+                        allSelectedText: 'Đã chọn tất cả',
+                        enableFiltering: true,
+                        filterPlaceholder: 'Tìm kiếm...',
+                        buttonWidth: '98%'
+                    });
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            function thongbao(s) {
+                modal({
+                    type: 'success',
+                    title: 'Thông báo',
+                    text: s,
+                    size: "small",
+                });
+            };
+            function warning(s) {
+                modal({
+                    type: 'warning',
+                    title: 'Thông báo',
+                    text: s,
+                    size: "small",
+                });
+            };
+            function inverted(s) {
+                modal({
+                    type: 'error',
+                    title: 'Thông báo',
+                    text: s,
+                    size: "small",
+                });
+            };
+        </script>
+        <script>
+            $(function () {
+                //$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+                //if (!screenfull.enabled) {
+                //    return false;
+                //}
+
+                $('#toggle').click(function () {
+                    screenfull.toggle($('#container')[0]);
+                });
+            });
+        </script>
+
+        <style>
+            .addressClickRed {
+                color: red;
+            }
+
+            .addressClickBlue {
+                color: blue;
+            }
+        </style>
+        <script type="text/javascript">
+            function checkAll(objRef) {
+                var GridView = objRef.parentNode.parentNode.parentNode;
+                var inputList = GridView.getElementsByTagName("input");
+                for (var i = 0; i < inputList.length; i++) {
+                    var row = inputList[i].parentNode.parentNode;
+                    if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+                        if (objRef.checked) {
+                            row.style.backgroundColor = "aqua";
+                            inputList[i].checked = true;
+                        }
+                        else {
+                            if (row.rowIndex % 2 == 0) {
+                                row.style.backgroundColor = "#C2D69B";
+                            }
+                            else {
+                                row.style.backgroundColor = "white";
+                            }
+                            inputList[i].checked = false;
+                        }
+                    }
+                }
+            }
+            function Check_Click(objRef) {
+                var row = objRef.parentNode.parentNode;
+                if (objRef.checked) {
+                    row.style.backgroundColor = "aqua";
+                }
+                else {
+                    if (row.rowIndex % 2 == 0) {
+                        row.style.backgroundColor = "#C2D69B";
+                    }
+                    else {
+                        row.style.backgroundColor = "white";
+                    }
+                }
+                var GridView = row.parentNode;
+                var inputList = GridView.getElementsByTagName("input");
+                for (var i = 0; i < inputList.length; i++) {
+                    var headerCheckBox = inputList[0];
+                    var checked = true;
+                    if (inputList[i].type == "checkbox" && inputList[i] != headerCheckBox) {
+                        if (!inputList[i].checked) {
+                            checked = false;
+                            break;
+                        }
+                    }
+                }
+                headerCheckBox.checked = checked;
+            }
+            function MouseEvents(objRef, evt) {
+                var checkbox = objRef.getElementsByTagName("input")[0];
+                if (evt.type == "mouseover") {
+                    objRef.style.backgroundColor = "orange";
+                }
+                else {
+                    if (checkbox.checked) {
+                        objRef.style.backgroundColor = "aqua";
+                    }
+
+                    else if (evt.type == "mouseout") {
+                        if (objRef.rowIndex % 2 == 0) {
+                            //Alternating Row Color
+                            objRef.style.backgroundColor = "#C2D69B";
+                        }
+                        else {
+                            objRef.style.backgroundColor = "white";
+                        }
+                    }
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            Sys.Application.add_load(BindEvents);
+        </script>
+          </form>
+</body>
+
+</html>

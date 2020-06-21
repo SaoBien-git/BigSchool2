@@ -1,0 +1,334 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LayoutAdmin.master.cs" Inherits="BigSchool.LayoutAdmin" %>
+
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>Hệ thống quản lý Big School</title>
+    <!-- Custom CSS -->
+    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="Content/select2.css" rel="stylesheet" />
+    <link href="Content/Tab.css" rel="stylesheet" />
+    <link href="Content/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="Content/jquery.modal.css" rel="stylesheet" />
+    <link href="css/hauvv.css" rel="stylesheet" />
+    <link href="css/demo.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+        <div id="main-wrapper">
+            <asp:ScriptManager runat="server" LoadScriptsBeforeUI="true"
+                EnablePartialRendering="true">
+            </asp:ScriptManager>
+            <header class="topbar" data-navbarbg="skin5">
+                <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                    <div class="navbar-header" data-logobg="skin5">
+                        <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                        <a class="navbar-brand" href="index.html">
+                            <!-- Logo icon -->
+                            <b class="logo-icon p-l-10">
+                                <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                            </b>
+                            <span class="logo-text">
+                               <%-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />--%>
+                            </span>
+                        </a>
+                        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                        <ul class="navbar-nav float-left mr-auto">
+                            <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                        </ul>
+                        <ul class="navbar-nav float-right">
+                            <li class="nav-item dropdown">
+                                 <asp:Label ID="Label1" runat="server" Text="Xin chào: " ForeColor="White"></asp:Label>
+                                 <asp:Label ID="lbltaikhoan" runat="server" Text="taikhoan" ForeColor="White"></asp:Label>
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                                 
+                                <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                    <a class="dropdown-item" href="CaiDatTaiKhoan.aspx"><i class="ti-settings m-r-5 m-l-5"></i>Cài đặt tài khoản</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="Login.aspx"><i class="fa fa-power-off m-r-5 m-l-5"></i>Đăng xuất</a>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="p-l-30 p-10"><a href="ThongTinCaNhan.aspx" class="btn btn-sm btn-success btn-rounded">Thông tin cá nhân</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <aside class="left-sidebar" data-sidebarbg="skin5">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                         <asp:Label ID="lbMenu" runat="server"></asp:Label>
+                    </nav>
+                    <!-- End Sidebar navigation -->
+                </div>
+                <!-- End Sidebar scroll-->
+            </aside>
+            <div class="page-wrapper">
+                <div class="page-breadcrumb">
+                </div>
+                <div class="container-fluid" >
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <footer class="footer text-center">
+                   Ứng dụng website tính công cho công ty Info
+                </footer>
+            </div>
+        </div>
+        <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+        <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+        <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+        <!--Wave Effects -->
+        <script src="dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="dist/js/custom.min.js"></script>
+        <!--This page JavaScript -->
+        <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
+        <!-- Charts js Files -->
+        <script src="assets/libs/flot/excanvas.js"></script>
+        <script src="assets/libs/flot/jquery.flot.js"></script>
+        <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+        <script src="assets/libs/flot/jquery.flot.time.js"></script>
+        <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+        <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+        <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+        <script src="dist/js/pages/chart/chart-page-init.js"></script>
+        <link href="assets/libs/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" />
+
+
+        <script src="Scripts/select2.full.js"></script>
+        <script src="Scripts/bootstrap-multiselect.js"></script>
+        <script src="Scripts/jquery.modal.min.js"></script>
+        <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
+        <script src="/signalr/hubs"></script>
+        <script type="text/javascript">
+            var $h3soluong = $('#lbsoluong');
+            var val = "<%= Session["IDND"]%>";
+            var job = $.connection.jobHub;
+
+            var dautien = document.getElementById('lbsoluong').innerHTML;
+            if (dautien == '') {
+                job.client.displayStatus = function () {
+                    getData();
+                };
+                $.connection.hub.start();
+                getData();
+
+                $.connection.hub.stop();
+            }
+            $(function () {
+                window.addEventListener('focus', function () {
+
+                    job.client.displayStatus = function () {
+                        getData();
+                    };
+                    $.connection.hub.start();
+                    getData();
+                });
+            });
+
+            window.addEventListener('blur', function () {
+                //job.disconnect();
+                $.connection.hub.stop();
+            });
+
+            function getData() {
+                $.ajax({
+                    url: '../api/Notification?name=' + val,
+                    type: 'GET',
+                    datatype: 'json',
+                    success: function (data) {
+                        if (data.length > 0) {
+                            $h3soluong.empty();
+                            $h3soluong.append(data.length);
+                        }
+                        else {
+                            $h3soluong.empty();
+                            $h3soluong.append(0);
+                        }
+                    }
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            function BindEvents() {
+                $(document).ready(function () { $(".dropdownselect2").select2(); });
+                $(document).ready(function () {
+                    $(".mlselect").multiselect({
+                        includeSelectAllOption: true,
+                        enableCaseInsensitiveFiltering: true,
+                        allSelectedText: 'Đã chọn tất cả',
+                        enableFiltering: true,
+                        filterPlaceholder: 'Tìm kiếm...',
+                        buttonWidth: '98%'
+                    });
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            function thongbao(s) {
+                modal({
+                    type: 'success',
+                    title: 'Thông báo',
+                    text: s,
+                    size: "small",
+                });
+            };
+            function warning(s) {
+                modal({
+                    type: 'warning',
+                    title: 'Thông báo',
+                    text: s,
+                    size: "small",
+                });
+            };
+            function inverted(s) {
+                modal({
+                    type: 'error',
+                    title: 'Thông báo',
+                    text: s,
+                    size: "small",
+                });
+            };
+        </script>
+        <script>
+            $(function () {
+                //$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+                //if (!screenfull.enabled) {
+                //    return false;
+                //}
+
+                $('#toggle').click(function () {
+                    screenfull.toggle($('#container')[0]);
+                });
+            });
+        </script>
+
+        <style>
+            .addressClickRed {
+                color: red;
+            }
+
+            .addressClickBlue {
+                color: blue;
+            }
+        </style>
+        <script type="text/javascript">
+            function checkAll(objRef) {
+                var GridView = objRef.parentNode.parentNode.parentNode;
+                var inputList = GridView.getElementsByTagName("input");
+                for (var i = 0; i < inputList.length; i++) {
+                    var row = inputList[i].parentNode.parentNode;
+                    if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+                        if (objRef.checked) {
+                            row.style.backgroundColor = "aqua";
+                            inputList[i].checked = true;
+                        }
+                        else {
+                            if (row.rowIndex % 2 == 0) {
+                                row.style.backgroundColor = "#C2D69B";
+                            }
+                            else {
+                                row.style.backgroundColor = "white";
+                            }
+                            inputList[i].checked = false;
+                        }
+                    }
+                }
+            }
+            function Check_Click(objRef) {
+                var row = objRef.parentNode.parentNode;
+                if (objRef.checked) {
+                    row.style.backgroundColor = "aqua";
+                }
+                else {
+                    if (row.rowIndex % 2 == 0) {
+                        row.style.backgroundColor = "#C2D69B";
+                    }
+                    else {
+                        row.style.backgroundColor = "white";
+                    }
+                }
+                var GridView = row.parentNode;
+                var inputList = GridView.getElementsByTagName("input");
+                for (var i = 0; i < inputList.length; i++) {
+                    var headerCheckBox = inputList[0];
+                    var checked = true;
+                    if (inputList[i].type == "checkbox" && inputList[i] != headerCheckBox) {
+                        if (!inputList[i].checked) {
+                            checked = false;
+                            break;
+                        }
+                    }
+                }
+                headerCheckBox.checked = checked;
+            }
+            function MouseEvents(objRef, evt) {
+                var checkbox = objRef.getElementsByTagName("input")[0];
+                if (evt.type == "mouseover") {
+                    objRef.style.backgroundColor = "orange";
+                }
+                else {
+                    if (checkbox.checked) {
+                        objRef.style.backgroundColor = "aqua";
+                    }
+
+                    else if (evt.type == "mouseout") {
+                        if (objRef.rowIndex % 2 == 0) {
+                            //Alternating Row Color
+                            objRef.style.backgroundColor = "#C2D69B";
+                        }
+                        else {
+                            objRef.style.backgroundColor = "white";
+                        }
+                    }
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            Sys.Application.add_load(BindEvents);
+        </script>
+        <asp:HiddenField ID="hdXacNhan" runat="server" />
+    </form>
+</body>
+
+</html>
