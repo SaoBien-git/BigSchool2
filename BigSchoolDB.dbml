@@ -90,4 +90,23 @@
       <Column Name="IDGiangVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
     </Type>
   </Table>
+  <Function Name="dbo.sp_KhoaHoc" Method="sp_KhoaHoc">
+    <Parameter Name="ChuDe" Parameter="chuDe" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Diadiem" Parameter="diadiem" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="GiangVien" Parameter="giangVien" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="sp_KhoaHocResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ChuDe" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TuNgay" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DenNgay" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DiaDiem" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="KinhPhi" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhDaiDien" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IDGiangVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
