@@ -53,7 +53,7 @@
                                     <asp:BoundField DataField="DiaDiem" HeaderText="Địa điểm" />
                                     <asp:BoundField DataField="GiangVien" HeaderText="Giảng viên" />
                                     <asp:BoundField DataField="NoiDung" HeaderText="Nội dung" />
-                                    <asp:BoundField DataField="KinhPhi" HeaderText="Học phí 2" />
+                                    <asp:BoundField DataField="KinhPhi" HeaderText="Học phí 2345" />
                                 </Columns>
                                 <FooterStyle BackColor="White" ForeColor="#000066" Font-Bold="True" Font-Size="11px"
                                     HorizontalAlign="Right" />
