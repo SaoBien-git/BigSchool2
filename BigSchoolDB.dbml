@@ -147,4 +147,19 @@
       <Column Name="HoTen1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_Menu_Loadgrid" Method="sp_Menu_Loadgrid">
+    <Parameter Name="TenMenu" Parameter="tenMenu" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RowspPage" Parameter="rowspPage" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Menu_LoadgridResult">
+      <Column Name="STT2" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenMenu" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ViTri" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenMeNuCha" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
