@@ -9,9 +9,16 @@
                             <b>Danh sách khóa học đăng ký</b>
                         </div>
                         <div class="panel-body">
-                            <asp:GridView ID="GVDK" runat="server" AutoGenerateColumns="false"
+                            <asp:GridView ID="GVDK" runat="server" AutoGenerateColumns="false" OnRowCommand="GVDK_RowCommand"
                                 EmptyDataText="Không có dữ liệu nào" class="table table-striped table-bordered table-hover">
                                 <Columns>
+                                     <asp:TemplateField HeaderText="Hủy đăng ký" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="30px"
+                                        ItemStyle-Width="30px">
+                                        <ItemTemplate>
+                                           <asp:LinkButton ID="lbtDangKy" runat="server" ToolTip="Đăng ký" CommandArgument='<%#Eval("ID")%>'
+                                                Text='Hủy đăng ký' CommandName="dangky" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                      <asp:BoundField DataField="ChuDe" HeaderText="Chủ đề" />
                                     <asp:BoundField DataField="DiaDiem" HeaderText="Địa điểm" />
                                     <asp:BoundField DataField="HoTen" HeaderText="Giảng viên" />
@@ -37,9 +44,16 @@
                             <b>Danh sách theo dõi giảng viên</b>
                         </div>
                         <div class="panel-body">
-                            <asp:GridView ID="GVTD" runat="server" AutoGenerateColumns="false"
+                            <asp:GridView ID="GVTD" runat="server" AutoGenerateColumns="false" OnRowCommand="GVTD_RowCommand"
                                 EmptyDataText="Không có dữ liệu nào" class="table table-striped table-bordered table-hover">
                                 <Columns>
+                                     <asp:TemplateField HeaderText="Bỏ theo dõi" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="30px"
+                                        ItemStyle-Width="30px">
+                                        <ItemTemplate>
+                                           <asp:LinkButton ID="lbtDangKy" runat="server" ToolTip="Đăng ký" CommandArgument='<%#Eval("ID")%>'
+                                                Text='Bỏ theo dõi' CommandName="dangky" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:BoundField DataField="HoTen" HeaderText="Họ tên" />
                                     <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" />
                                     <asp:BoundField DataField="GioiTinh" HeaderText="Giới tính" />
